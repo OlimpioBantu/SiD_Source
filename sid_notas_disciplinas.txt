@@ -1,0 +1,51 @@
+<html>
+		<head>   <title>S.i.D - Sistema de Importação de Dados</title>  </head> 
+		<link rel="stylesheet" href="css.css" media="all"/>				
+						<!-- inicio da tabela -->
+ 	<body>										
+					<table border = 4 width = 48%> <!--tamanho das bordas da tabela-->
+	<tr>
+     <th>Nome Disciplinas</th>	
+	 <th>Notas Disciplinas</th>
+	 <th>Nome Aluno</th>
+	 <th> &nbsp R A  &nbsp</th>
+	 <th>&nbsp Nome Docentes &nbsp</th>
+	 <th>e-mail Docentes</th>
+	<p align   = "middle">  <h1>Resultado da Pesquisa - Notas Disciplinas</h1> </p>
+    <p align = "middle"> <input type="button" onClick="document.location='sid_login_fatec.php'" value="&nbsp &nbsp Sair &nbsp &nbsp "><br />
+			<br>
+<?php
+
+header('Content-Type: text/html; charset=UTF-8');//acerta a pontuação
+include "sid_conecta_fatec.php"; //faz a conexÃO COM O BANCO DE DADOS
+	$link = mysqli_connect("127.0.0.1", "$usuario", "$senha", "$banco");
+							$conexao = mysqli_connect($host,$usuario,$senha); 
+	mysqli_select_db($link, $banco); /*seleciona o banco a ser usado*/
+	
+$res = mysqli_query($link, "SELECT  nome_discip, notas_discip, nome_aluno, matr_aluno, nome_prof, email_prof 
+							FROM notas_disciplinas where nome_aluno= '". $_GET["nome_aluno"] . "' order by nome_aluno ");
+	
+ 	while($escrever = mysqli_fetch_array($res))
+{ 
+ print " <tr><td> ". $escrever['nome_discip'] ."  </td>
+			 <td> ". $escrever['notas_discip'] ." </td>
+			 <td> ". $escrever['nome_aluno'] ."   </td>
+             <td> ". $escrever['matr_aluno'] ."   </td>    		  
+        	 <td> ". $escrever['nome_prof'] ." </td>  			  
+						  
+				<td><a href='sid_professores_fatec.php?aluno=". $escrever['nome_discip'] ."
+				    &nome_discip=". $escrever['nome_discip'] ."&notas_discip=". $escrever['notas_discip'] ." 
+				    &nome_aluno=". $escrever['nome_aluno']."&matr_aluno'> ". $escrever['email_prof']."</a></td>
+						
+			 </td></tr>";
+}
+print '</table>'; 
+	
+				if(isset($_POST["txtPesquisa"]))
+	{
+		$sql=$sql . " where nome_aluno like '%". $_POST["txtPesquisa"] ."%'"; //<-- define o nome a ser pesquisado
+	}		
+mysqli_close($conexao);
+?>					
+	</body>
+</html>

@@ -1,0 +1,9 @@
+* {margin:20 ; padding:0}
+
+body
+{ /* imagem */	
+	background-image: url("grafico15.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+

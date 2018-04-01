@@ -1,0 +1,97 @@
+* {margin:0 auto; padding:0;}
+
+body{
+		
+	background-image: url("disciplinas3.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	
+}
+	
+	background-color:  	#A62A2A ; /*tela de fundo*/
+
+
+.campo{
+	width:200px;
+	height:20px;
+	padding:5px;
+	color:"#003300"; 				/* letras de dentro dos casulos*/
+	font-family:verdana;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+/*
+#central
+{
+	width:500px;
+	height:auto;
+	padding:10px;
+	margin-top: 50px;
+	background-color: #A29B97;    
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+*/
+.name{
+	color:#FFF;
+}
+
+/*
+
+.campo:focus{
+		width:200px;
+	height:20px;
+	padding:5px;
+	border:0px;
+	outline: none;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	box-shadow:0 0 20px #008b8b;
+}
+*/
+/*
+.campus{
+	width:200px;
+	height:100px;
+	padding:5px;
+	color:#F4074E;
+	font-family:verdana;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.campus:focus{
+		width:200px;
+	height:100px;
+	padding:5px;
+	border:0px;
+	outline: none;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	box-shadow:0 0 20px #008b8b;    
+}
+*/
+.buttom{													/*  configuracao dos botoes de sair e acessar    */
+	color: 	#000000;
+	border-radius:10px;
+	-moz-border-radius:15px;						
+	-webkit-border-radius:10px;
+	width:70px;
+	height:25px;
+	padding:3px;
+	font-family:arial unicode ms;
+	background-color:#81917C;					 
+}
+
+
+.buttom:hover{
+	outline:none;
+	box-shadow:0 0 20px #8B0000;		/* cor do entorno dos botoes */
+	
+}

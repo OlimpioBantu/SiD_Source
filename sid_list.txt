@@ -1,0 +1,95 @@
+<html>
+		<head>   <title>S.i.D - Sistema de Importação de Dados</title>  </head> 
+		<link rel="stylesheet" href="css.css" media="all"/>
+				
+<!--						<!-- inicio da tabela 
+						
+		<?
+			$res1 = mysqli_connect("127.0.0.1", "root", "");
+			
+				$sql = "select  matr_aluno, nome_aluno, ano_ingresso from alunos";
+				
+			/*	$res2 = mysqli_db_query("alunos", "$sql", "res1"); */
+			
+		?>
+
+ 	<body>										
+					<table border = 5 width=100%>
+	<tr>
+			
+	<th>Matricula aluno</th>
+		<th>Nome aluno</th>
+			<th>Ano de ingresso</th>
+</tr>
+ 
+ <?
+ 
+ $matr_aluno = $_POST['matr_aluno'];
+				$nome_aluno = $_POST['nome_aluno'];
+			$sql = ano_ingresso = $_POST['ano_ingresso'];
+ 
+		while ($valor = mysqli_fetch_array($res1)) 
+		{ ?>
+	 <tr>
+		<td><?=$valor ["matr_aluno"]?></td>
+		
+			<td><?=$valor ["nome_aluno"]?></td>
+			
+						<td><?=$valor["ano_ingresso"]?></td>
+		</tr>
+		<?
+		}
+			mysqli_close($res1);
+			?>
+													fim da tabla 
+ -->
+													
+							<p align = "middle">  <h1>Resultado da Pesquisa</h1> </p>
+			<p align = "middle"> <input type="button" onClick="document.location='formulario_fatec.php'" value="Retorna !!!"><br />
+
+<?php
+
+$host = "127.0.0.1"; /*maquina a qual o banco de dados está*/
+	$usuario = "root"; /*usuario do banco de dados MySql*/
+		$senha =""; /*senha do banco de dados MySql*/
+			$banco = "fatec"; /*seleciona o banco a ser usado*/
+					$link = mysqli_connect("127.0.0.1", "$usuario", "$senha", "$banco");
+					
+$conexao = mysqli_connect($host,$usuario,$senha);  /*Conecta no bando de dados MySql*/
+
+mysqli_select_db($link, $banco); /*seleciona o banco a ser usado*/
+
+$res = mysqli_query($link, "select  matr_aluno, nome_aluno, ano_ingresso from alunos"); /* while($exibe = mysql_fetch_assoc($sql))*/
+
+ /* Executa o comando SQL, para pegar todos os usuarios do sistema e retorna o valor da consulta em uma variavel ($res)  */												
+
+print " <table>";
+		 print "<tr><td>Matricula do aluno - </td>" ;
+	
+			print "<td> Nome do Aluno - </td>";
+			
+				print "<td>Ano de Ingresso</td><tr>";	
+/*        
+
+Para obter todos os registros você precisa de uma laço de repetição:
+
+}
+
+    Enquanto houver dados na tabela para serem mostrados será executado tudo que esta dentro do while */
+
+		while($escrever = mysqli_fetch_array($res)){
+
+/*Escreve cada linha da tabela*/
+			print "<tr><td>" . $escrever['matr_aluno'] . "</td><td>" . $escrever['nome_aluno'] . "</td><td>" . $escrever['ano_ingresso'] . "</td></tr>";
+
+}/*Fim do while*/
+
+print "</table>"; /*fecha a tabela apos termino de impressão das linhas*/
+
+mysqli_close($conexao);
+
+?>
+	</table>	
+			</table>
+					</body>
+</html>
